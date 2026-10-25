@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northstar Agent Assist Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+/* Layout: one calm reading column, big-number stat cards, statement-style agent screens, a roomy 24-week lane chart */
+:root{
+  --bg:#E3E8EF; --surface:#FFFFFF; --ink:#141C28; --muted:#46526A; --line:#D3DAE4;
+  --accent:#1F4FA8; --accent-soft:#E8EEF9; --amber:#A85F0A; --amber-soft:#FBF1E3; --good:#17734A; --good-soft:#E6F4EC;
+  --bar1:#1F4FA8; --bar2:#6E8FD0; --bar3:#C27A1E; --bar4:#8792A3; --on-bar:#FFFFFF;
+  --display:"IBM Plex Serif",Georgia,serif; --body:Calibri,Carlito,"Segoe UI",Arial,sans-serif; --mono:Calibri,Carlito,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F141C; --surface:#171E29; --ink:#E6EBF2; --muted:#A5B0C0; --line:#2B3545;
+  --accent:#8EAEF2; --accent-soft:#1D2B45; --amber:#E7AA5E; --amber-soft:#2F2516; --good:#67CB9C; --good-soft:#15291F;
+  --bar1:#5F86DA; --bar2:#3F5E9F; --bar3:#B9772A; --bar4:#5D6A7E; --on-bar:#FFFFFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F141C; --surface:#171E29; --ink:#E6EBF2; --muted:#A5B0C0; --line:#2B3545;
+  --accent:#8EAEF2; --accent-soft:#1D2B45; --amber:#E7AA5E; --amber-soft:#2F2516; --good:#67CB9C; --good-soft:#15291F;
+  --bar1:#5F86DA; --bar2:#3F5E9F; --bar3:#B9772A; --bar4:#5D6A7E; --on-bar:#FFFFFF; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 var(--body)}
+.wrap{max-width:860px;margin:0 auto;padding-block:48px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:64px}
+h1,h2,h3{font-family:var(--body);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-family:var(--display);font-size:clamp(2rem,5vw,2.75rem);font-weight:600}
+h2{font-size:1.65rem;font-weight:600}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0;max-width:64ch}
+section{display:grid;gap:20px}
+ul,ol{margin:0;padding-left:1.25rem;display:grid;gap:10px}
+li::marker{color:var(--accent)}
+.eyebrow{font:600 .8rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.byline{color:var(--muted)}
+.note{background:var(--amber-soft);border-radius:8px;padding:12px 16px;font-size:.95rem}
+.note b{color:var(--amber)}
+.big{font-size:1.2rem;line-height:1.6}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.grid2>*{min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:4px}
+.tile .n{font:500 2rem/1.15 var(--mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.tile .l{color:var(--muted);font-size:.95rem;line-height:1.4}
+.calltype{display:grid;gap:16px;align-content:start}
+.calltype .num-label{font:600 .8rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{display:grid;gap:2px}
+.stat b{font:500 1.45rem/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted);line-height:1.3}
+.struggle{font-size:.98rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.opp{display:grid;gap:28px}
+.opp-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.tag{font:600 .78rem/1 var(--body);letter-spacing:.05em;text-transform:uppercase;padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.k{font:600 .8rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stack{display:grid;gap:12px;align-content:start}
+.screen{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.screen-bar{display:flex;justify-content:space-between;gap:8px;padding:10px 16px;background:var(--accent-soft);color:var(--accent);font:600 .8rem/1.3 var(--mono);letter-spacing:.03em}
+.screen-body{padding:18px;display:grid;gap:14px}
+.walk{font:400 1rem/1.9 var(--mono);font-variant-numeric:tabular-nums;display:grid;grid-template-columns:1fr auto;gap:0 20px}
+.walk .tot{border-top:1px solid var(--muted);font-weight:500;margin-top:4px;padding-top:4px}
+.walk .hl{color:var(--amber);font-weight:500}
+.say{border-left:3px solid var(--accent);padding:2px 0 2px 14px;font-size:1rem;line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:.85rem;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:4px 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.kpi{background:var(--good-soft);border-radius:10px;padding:14px 16px;display:grid;gap:2px}
+.kpi b{font:500 1.4rem/1.2 var(--mono);color:var(--good);font-variant-numeric:tabular-nums}
+.kpi span{font-size:.88rem;color:var(--muted)}
+.kpi.money{background:var(--accent-soft)}
+.kpi.money b{color:var(--accent)}
+.order{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.order .card{display:grid;gap:10px;align-content:start}
+.order dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.98rem}
+.order dt{color:var(--muted)}
+.order dd{margin:0;font-weight:500}
+.gantt-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.gantt{display:grid;grid-template-columns:200px repeat(24,minmax(24px,1fr));row-gap:16px;min-width:780px;align-items:center}
+.gantt .wk{font:500 .8rem/1 var(--mono);color:var(--muted);text-align:center}
+.gantt .lbl{padding-right:14px;font-weight:500;font-size:.95rem;line-height:1.3}
+.bar{height:32px;border-radius:6px;color:var(--on-bar);font:500 .82rem/32px var(--body);padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.b1{background:var(--bar1)}.b2{background:var(--bar2)}.b3{background:var(--bar3)}.b4{background:var(--bar4)}
+.gate{color:var(--amber);font:600 1.2rem/1 var(--body);text-align:center}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;color:var(--muted);margin-top:20px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.steps{display:grid;gap:14px;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:600 .95rem/32px var(--body);text-align:center}
+.steps b{display:block}
+.steps span{color:var(--muted)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 .8rem/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+.foot{font-size:.92rem;color:var(--muted);display:grid;gap:10px;border-top:1px solid var(--line);padding-top:28px}
+.foot h3{font-size:1.05rem;color:var(--ink)}
+.foot code{font-family:var(--mono);font-size:.85rem;color:var(--ink)}
+@media (max-width:480px){.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body style="margin:0">
+
+<main class="wrap">
+
+<header style="display:grid;gap:16px">
+  <div class="eyebrow">Sample AI strategy work product</div>
+  <h1>Agent Assist AI Roadmap: Northstar Card Services</h1>
+  <p class="byline">Prepared by Betty K Gilbert · October 2026</p>
+  <p class="note"><b>Sample only.</b> Northstar Card Services is a fictional credit card issuer. All numbers are illustrative assumptions, shown at the bottom of the page.</p>
+</header>
+
+<section>
+  <h2>Recommendation</h2>
+  <p class="big">Real-time Agent Assist can cut handle time and repeat calls on Northstar's two most costly call types, worth about <b>$1.0M a year</b>.</p>
+  <ul>
+    <li><b>Start with convenience check fees.</b> The guidance is mostly knowledge and simple math, so it can pilot in 6 weeks.</li>
+    <li><b>Follow with "why isn't my balance going down?"</b> It needs statement data, but it returns more.</li>
+    <li><b>Prove each one first.</b> Every use case pilots against a control group and scales only if it beats the baseline.</li>
+  </ul>
+  <div class="tiles">
+    <div class="tile"><span class="n">$1.0M</span><span class="l">modeled annual value</span></div>
+    <div class="tile"><span class="n">432K</span><span class="l">calls a year in scope</span></div>
+    <div class="tile"><span class="n">2</span><span class="l">pilots against control groups</span></div>
+    <div class="tile"><span class="n">18 wks</span><span class="l">to both scale decisions</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>What the call data shows</h2>
+  <p>These two call types ranked highest for handle time and repeat calls. The center average handle time is <b>7.0 minutes</b>.</p>
+  <div class="grid2">
+    <div class="card calltype">
+      <span class="num-label">Call type 1</span>
+      <h3>Convenience check fee (3% cash advance)</h3>
+      <div class="stats">
+        <div class="stat"><b>192K</b><span>calls a year</span></div>
+        <div class="stat"><b>9.5 min</b><span>handle time</span></div>
+        <div class="stat"><b>22%</b><span>call back in 7 days</span></div>
+      </div>
+      <p class="struggle">Agents search the cardholder agreement, recalculate the fee, and explain why interest started right away.</p>
+    </div>
+    <div class="card calltype">
+      <span class="num-label">Call type 2</span>
+      <h3>Balance not going down on minimum payments</h3>
+      <div class="stats">
+        <div class="stat"><b>240K</b><span>calls a year</span></div>
+        <div class="stat"><b>10.5 min</b><span>handle time</span></div>
+        <div class="stat"><b>18%</b><span>call back in 7 days</span></div>
+      </div>
+      <p class="struggle">Agents walk through statements line by line and have no clear next step to offer.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Opportunity 1: Convenience check fees</h2>
+  <div class="card opp">
+    <div class="opp-head"><h3>Explain the fee clearly the first time</h3><span class="tag">Pilot first</span></div>
+    <div class="grid2">
+      <div class="stack">
+        <span class="k">What Agent Assist does</span>
+        <ul>
+          <li>Spots the fee question during the call</li>
+          <li>Calculates the fee for the agent</li>
+          <li>Shows a Compliance-approved explanation</li>
+          <li>Shows whether a courtesy adjustment applies</li>
+        </ul>
+      </div>
+      <div class="screen" aria-label="Example of the agent guidance card">
+        <div class="screen-bar"><span>AGENT ASSIST</span><span>Fee question</span></div>
+        <div class="screen-body">
+          <div class="walk"><span>Check #1042</span><span>$1,000.00</span><span class="hl">Fee (3%)</span><span class="hl">$30.00</span></div>
+          <div class="say">"Convenience checks count as cash advances. The fee is 3%, so $30 on your $1,000 check. Interest starts the day the check posts."</div>
+          <div class="chips"><span>Show disclosure</span><span>Adjustment: not eligible</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stack">
+      <span class="k">Targets</span>
+      <div class="kpis">
+        <div class="kpi"><b>−1.5 min</b><span>handle time</span></div>
+        <div class="kpi"><b>−25%</b><span>repeat calls</span></div>
+        <div class="kpi"><b>≥ 98%</b><span>disclosure accuracy</span></div>
+        <div class="kpi money"><b>$388K</b><span>a year</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Opportunity 2: "Why isn't my balance going down?"</h2>
+  <div class="card opp">
+    <div class="opp-head"><h3>Show where the payment went, then offer a next step</h3><span class="tag">Pilot second</span></div>
+    <div class="grid2">
+      <div class="stack">
+        <span class="k">What Agent Assist does</span>
+        <ul>
+          <li>Spots the balance concern during the call</li>
+          <li>Pulls the statement into a simple balance walk</li>
+          <li>Gives the agent one plain sentence to explain it</li>
+          <li>Suggests a next step, like autopay above the minimum</li>
+          <li>Flags customers who may need a payment plan</li>
+        </ul>
+      </div>
+      <div class="screen" aria-label="Example of the balance walk card">
+        <div class="screen-bar"><span>AGENT ASSIST</span><span>Balance walk</span></div>
+        <div class="screen-body">
+          <div class="walk">
+            <span>Previous balance</span><span>$2,400.00</span>
+            <span>Minimum payment</span><span>−$60.00</span>
+            <span class="hl">Interest</span><span class="hl">+$47.60</span>
+            <span class="hl">New purchases</span><span class="hl">+$150.00</span>
+            <span class="tot">New balance</span><span class="tot">$2,537.60</span>
+          </div>
+          <div class="say">"Your $60 payment covered $47.60 of interest, so only $12.40 lowered the balance. New purchases added $150."</div>
+          <div class="chips"><span>Offer autopay at $210</span><span>Payment plan check</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stack">
+      <span class="k">Targets</span>
+      <div class="kpis">
+        <div class="kpi"><b>−2.0 min</b><span>handle time</span></div>
+        <div class="kpi"><b>−30%</b><span>repeat calls</span></div>
+        <div class="kpi"><b>+3 pts</b><span>CSAT</span></div>
+        <div class="kpi money"><b>$616K</b><span>a year</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why this order</h2>
+  <div class="order">
+    <div class="card">
+      <span class="num-label k" style="color:var(--accent)">First</span>
+      <h3>Convenience check fee</h3>
+      <dl><dt>Value</dt><dd>$388K a year</dd><dt>Effort</dt><dd>Low</dd><dt>Ready to pilot</dt><dd>6 weeks</dd></dl>
+    </div>
+    <div class="card">
+      <span class="num-label k" style="color:var(--accent)">Second</span>
+      <h3>Balance not going down</h3>
+      <dl><dt>Value</dt><dd>$616K a year</dd><dt>Effort</dt><dd>Medium</dd><dt>Ready to pilot</dt><dd>12 weeks</dd></dl>
+    </div>
+  </div>
+  <p>The first pilot proves value quickly and builds agent trust, while IT connects the statement data the second one needs.</p>
+</section>
+
+<section>
+  <h2>Roadmap</h2>
+  <div class="gantt-wrap">
+    <div class="gantt" role="img" aria-label="24-week roadmap with five workstreams and scale decisions at weeks 12 and 18">
+      <span style="grid-row:1"></span>
+      <span class="wk" style="grid-row:1;grid-column:2">1</span><span class="wk" style="grid-row:1;grid-column:5">4</span><span class="wk" style="grid-row:1;grid-column:9">8</span><span class="wk" style="grid-row:1;grid-column:13">12</span><span class="wk" style="grid-row:1;grid-column:17">16</span><span class="wk" style="grid-row:1;grid-column:21">20</span><span class="wk" style="grid-row:1;grid-column:25">24</span>
+
+      <span class="lbl" style="grid-column:1;grid-row:2">Discovery</span>
+      <div class="bar b4" style="grid-row:2;grid-column:2 / 6">Baseline</div>
+
+      <span class="lbl" style="grid-column:1;grid-row:3">Use case 1: fees</span>
+      <div class="bar b2" style="grid-row:3;grid-column:4 / 8">Build</div>
+      <div class="bar b1" style="grid-row:3;grid-column:8 / 14">Pilot</div>
+      <span class="gate" style="grid-row:3;grid-column:14">◆</span>
+      <div class="bar b2" style="grid-row:3;grid-column:15 / 26">Scale and improve</div>
+
+      <span class="lbl" style="grid-column:1;grid-row:4">Use case 2: balance</span>
+      <div class="bar b2" style="grid-row:4;grid-column:6 / 14">Connect statement data</div>
+      <div class="bar b1" style="grid-row:4;grid-column:14 / 20">Pilot</div>
+      <span class="gate" style="grid-row:4;grid-column:20">◆</span>
+      <div class="bar b2" style="grid-row:4;grid-column:21 / 26">Scale</div>
+
+      <span class="lbl" style="grid-column:1;grid-row:5">Training</span>
+      <div class="bar b4" style="grid-row:5;grid-column:6 / 26">Agent training, launch notes, knowledge base updates</div>
+
+      <span class="lbl" style="grid-column:1;grid-row:6">Share learnings</span>
+      <div class="bar b3" style="grid-row:6;grid-column:10 / 26">To GTM: upstream fixes, IVR, and digital assets</div>
+    </div>
+    <div class="legend"><span><i style="background:var(--bar1)"></i>Pilot</span><span><i style="background:var(--bar2)"></i>Build and scale</span><span><i style="background:var(--bar4)"></i>Enablement</span><span><i style="background:var(--bar3)"></i>Shared learnings</span><span style="color:var(--amber)">◆ Go / no-go decision</span><span>Numbers across the top are weeks</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>How each pilot is judged</h2>
+  <ol class="steps">
+    <li><div><b>Matched groups</b><span>Test and control agents matched by site, tenure, and handle time, for 6 weeks.</span></div></li>
+    <li><div><b>Targets set up front</b><span>Handle time and repeat calls must beat control. CSAT and accuracy can't drop.</span></div></li>
+    <li><div><b>Adoption tracked</b><span>Low use signals a training or prompt fix, not a failed idea.</span></div></li>
+    <li><div><b>Weekly tuning</b><span>Review sample calls and adjust prompts and wording.</span></div></li>
+    <li><div><b>Go / no-go with leaders</b><span>Recommend scale, extend, or stop to CX, Operations, Compliance, IT, and Finance.</span></div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Share every learning with GTM</h2>
+  <p>Shorter calls are good. Fewer calls are better. What we learn from conversations goes to the go-to-market (GTM) teams for:</p>
+  <ul>
+    <li>Upstream fixes, like clearer fee wording on the convenience check mailer and a "where your payment went" line on the statement</li>
+    <li>The IVR, so it answers these questions sooner</li>
+    <li>Digital assets, like app and web explainers, and later an AI agent that answers these questions directly</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Proving value after launch</h2>
+  <p>At 30, 60, and 90 days, report handle time, repeat calls, CSAT, and cost to serve against this business case, and recommend the next use case.</p>
+</section>
+
+<section>
+  <h2>Risks and how to manage them</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Risk</th><th>How we manage it</th></tr></thead>
+    <tbody>
+      <tr><td>Explanations drift from approved wording</td><td>Compliance approves scripts; monitor pilot calls weekly and tune</td></tr>
+      <tr><td>Statement data arrives late</td><td>Start in week 5; use case 1 carries the program meanwhile</td></tr>
+      <tr><td>Agents ignore the prompts</td><td>Train before launch and coach from adoption reports</td></tr>
+      <tr><td>Privacy and security</td><td>Full review before any account data reaches the tool</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="foot">
+  <h3>Illustrative assumptions</h3>
+  <p>4.8M calls a year. Cost of $1.00 per agent minute. Avoided repeat calls are valued at that call type's handle time.</p>
+  <p>Use case 1: <code>192,000 × 1.5 min × $1 = $288,000</code> + <code>192,000 × 22% × 25% × 9.5 min × $1 = $100,320</code> ≈ $388K</p>
+  <p>Use case 2: <code>240,000 × 2.0 min × $1 = $480,000</code> + <code>240,000 × 18% × 30% × 10.5 min × $1 = $136,080</code> ≈ $616K</p>
+  <p>Balance example assumes about 23.8% APR (1.98% a month on $2,400). Autopay at $210 covers interest and typical purchases and lowers the balance.</p>
+</section>
+
+</main>
+</body>
+</html>
