@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Betty K Gilbert · Portfolio</title>
+<meta name="description" content="Work samples from Betty K Gilbert: AI strategy and enablement for contact centers.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#E3E8EF; --surface:#FFFFFF; --ink:#141C28; --muted:#46526A; --line:#D3DAE4;
+  --navy:#14213D; --navy2:#1F3A6B; --accent:#1F4FA8; --accent-soft:#E8EEF9; --amber:#E7AA5E; --on-navy:#F5F7FA; --on-navy-muted:#C9D3E6;
+  --display:"IBM Plex Serif",Georgia,serif; --body:Calibri,Carlito,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 var(--body)}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:var(--on-navy)}
+.inner{max-width:960px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hero .inner{padding-block:64px 56px;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.photo{width:168px;height:168px;border-radius:50%;flex:none;border:4px solid var(--amber);overflow:hidden;background:var(--navy2);display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo span{font:600 3.2rem/1 var(--display);color:var(--on-navy)}
+.intro{flex:1;min-width:260px;display:grid;gap:12px}
+.eyebrow{font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+h1{font:600 clamp(2.2rem,5vw,3.2rem)/1.1 var(--display);margin:0}
+.headline{font-size:1.15rem;color:var(--on-navy-muted);margin:0}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:999px;background:var(--amber);color:var(--navy)}
+.btn.ghost{background:transparent;color:var(--on-navy);border:2px solid var(--on-navy-muted)}
+main .inner{padding-block:56px 72px;display:grid;gap:56px}
+section{display:grid;gap:20px}
+h2{font:700 1.7rem/1.2 var(--body);margin:0;color:var(--navy)}
+p{margin:0;max-width:68ch}
+.about{font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:1rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:12px;padding:20px;display:grid;gap:4px}
+.stat b{font-size:2rem;line-height:1.1;color:var(--accent)}
+.stat span{color:var(--muted);line-height:1.4}
+.samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,33,61,.14)}
+.card-top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:var(--on-navy);padding:22px 24px}
+.card-top .type{font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.card-top h3{font:600 1.35rem/1.25 var(--display);margin:6px 0 0}
+.card-body{padding:20px 24px 24px;display:grid;gap:14px;flex:1;align-content:start}
+.card-body p{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 12px;font-size:.88rem;font-weight:700}
+.open{font-weight:700;color:var(--accent)}
+footer{border-top:1px solid var(--line)}
+footer .inner{padding-block:28px 40px;color:var(--muted);font-size:.95rem;display:grid;gap:6px}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <div class="photo">
+      <!-- To add your photo: upload a square picture named profile.jpg to this repository. -->
+      <img src="profile.jpg" alt="Betty K Gilbert" onerror="this.remove();document.getElementById('initials').hidden=false">
+      <span id="initials" hidden>BG</span>
+    </div>
+    <div class="intro">
+      <div class="eyebrow">Portfolio</div>
+      <h1>Betty K Gilbert</h1>
+      <p class="headline">Customer Operations &amp; Transformation Leader · AI Enablement · Continuous Improvement · Vendor &amp; Program Leadership</p>
+      <div class="links">
+        <a class="btn" href="https://www.linkedin.com/in/bettykgilbert" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn ghost" href="#samples">See work samples</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="inner">
+
+    <section>
+      <h2>About</h2>
+      <p class="about">I make customer service faster, simpler, and less costly. My background spans retail energy, EV charging, and consumer financial services, in regulated, high-volume, 24/7 operations.</p>
+      <p class="about">At NRG Energy, I lead process, knowledge, training, and AI enablement for 1,000+ agents across 7 locations in 6 countries, working with BPO partners and with leaders across Operations, Technology, Finance, and Legal. I find the problem, build the business case, test the fix, and scale what works.</p>
+      <ul class="chips" aria-label="Focus areas">
+        <li>Customer operations and CX</li>
+        <li>AI enablement</li>
+        <li>Continuous improvement and root cause</li>
+        <li>Vendor and BPO management</li>
+        <li>Program and launch leadership</li>
+        <li>Training and change management</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Results at a glance</h2>
+      <div class="stats">
+        <div class="stat"><b>30 days</b><span>faster new-hire ramp with AI role-play</span></div>
+        <div class="stat"><b>$1M</b><span>operating savings in 12 months</span></div>
+        <div class="stat"><b>15%</b><span>fewer regulatory complaints through root-cause fixes</span></div>
+        <div class="stat"><b>0 → 17</b><span>states: built EVgo’s customer operations</span></div>
+      </div>
+    </section>
+
+    <section id="samples">
+      <h2>Work samples</h2>
+      <div class="samples">
+
+        <!-- COPY FROM HERE to add a new sample card -->
+        <a class="card" href="agent-assist-roadmap.html">
+          <div class="card-top">
+            <div class="type">AI roadmap</div>
+            <h3>Agent Assist AI Roadmap for a Card Issuer</h3>
+          </div>
+          <div class="card-body">
+            <p>How real-time Agent Assist could cut handle time and repeat calls on two costly call types, with the business case, pilot design, and a 24-week plan.</p>
+            <div class="tags"><span>Business case</span><span>Pilot design</span><span>Contact center KPIs</span></div>
+            <span class="open">View sample →</span>
+          </div>
+        </a>
+        <!-- COPY TO HERE. Change the file name, type, title, description, and tags. -->
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <p>Work samples use fictional companies and illustrative figures. No confidential employer information is shared.</p>
+    <p>© 2026 Betty K Gilbert</p>
+  </div>
+</footer>
+
+</body>
+</html>
